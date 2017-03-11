@@ -133,7 +133,7 @@ std::istream& operator>>(std::istream& is, Complex_llong& op){
 
 	} else {
 	
-	//throw an exception for bad input
+		throw std::invalid_argument("invalid input");
 
 	}
 
@@ -141,4 +141,17 @@ std::istream& operator>>(std::istream& is, Complex_llong& op){
 
 }
 
+void Complex_llong::conjugate(Complex_llong& op){
 
+	op.imag = -1 * imag;
+
+}
+
+void Complex_llong::norm2(Complex_llong& op){
+
+	op.real = op.real * op.real;
+	op.imag = op.imag * op.imag;
+
+	op.are_squared = true;
+
+}
