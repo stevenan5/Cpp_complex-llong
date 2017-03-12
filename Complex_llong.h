@@ -12,7 +12,7 @@ class Complex_llong {
 	public:
 		Complex_llong(void);
 		Complex_llong(long long real, long long imag);
-		Complex_llong(const Complex_llong op);
+		Complex_llong(const Complex_llong& op);
 
 		void set(long long real, long long imag);
 		long long getreal(void);
@@ -34,8 +34,8 @@ class Complex_llong {
 
 	//computations
 
-		void conjugate(Complex_llong &op);
-		void norm2(Complex_llong &op);
+		void conjugate();
+		void norm2();
 
 	private: 
 		long long real;

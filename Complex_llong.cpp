@@ -2,8 +2,9 @@
 //Apache Licence
 //implementation of complex long long integer object
 
-#include "complex-llong.h"
+#include "Complex_llong.h"
 #include<iostream>
+#include<stdexcept>
 
 //Constructors
 
@@ -24,7 +25,7 @@ Complex_llong::Complex_llong(long long real, long long imag){
 
 }
 
-Complex_llong::Complex_llong(const Complex_llong op){
+Complex_llong::Complex_llong(const Complex_llong& op){
 
 	real = op.real;
 	imag = op.imag;
@@ -35,12 +36,24 @@ Complex_llong::Complex_llong(const Complex_llong op){
 
 //Member functions
 
-void Complex_llong::set(long long real, long long imag);
+void Complex_llong::set(long long real, long long imag){
 	
 	this->real = real;
 	this->imag = imag;
 
 	are_squared = false;
+
+}
+
+long long Complex_llong::getreal(void){
+
+	return real;
+
+}
+
+long long Complex_llong::getimag(void){
+
+	return imag;
 
 }
 
@@ -50,7 +63,7 @@ Complex_llong& Complex_llong::operator=(const Complex_llong& op){
 		return *this;
 
 	real = op.real;
-	imag = op.imag
+	imag = op.imag;
 
 	are_squared = op.are_squared;
 
@@ -141,17 +154,17 @@ std::istream& operator>>(std::istream& is, Complex_llong& op){
 
 }
 
-void Complex_llong::conjugate(Complex_llong& op){
+void Complex_llong::conjugate(){
 
-	op.imag = -1 * imag;
+	imag = -1 * imag;
 
 }
 
-void Complex_llong::norm2(Complex_llong& op){
+void Complex_llong::norm2(){
 
-	op.real = op.real * op.real;
-	op.imag = op.imag * op.imag;
+	real = real * real;
+	imag = imag * imag;
 
-	op.are_squared = true;
+	are_squared = true;
 
 }
